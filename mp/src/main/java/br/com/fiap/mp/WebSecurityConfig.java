@@ -9,7 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 public class WebSecurityConfig{
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http)throws Exception{
-    http.authorizeHttpRequests((requests) -> requests.anyrequest().authenticated()).httpBasic(Customizer.withDefaults());
+    http.authorizeHttpRequests((requests) -> requests.anyrequest().authenticated()).formLogin((form) -> form.loginPage("/login").permitAll());
+    http.csrf((crsf) -> crsf.disable());
 
     return http.build();
   }
