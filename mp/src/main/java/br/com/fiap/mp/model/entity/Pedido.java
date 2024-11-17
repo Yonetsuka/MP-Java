@@ -15,6 +15,7 @@ public class Pedido{
   private String nomeProduto;
   private BigDecimal valorNegociado;
   private LocalDate dataDaEntrega;
+  private Int eficiencia;
   private String urlProduto;
   private String urlImagem;
   private String descricao;
@@ -24,6 +25,10 @@ public class Pedido{
 
     //criar getter e setters
   // Getters
+
+    public int getEficiencia(){
+      return eficiencia;
+    }
     public Long getCodigoProduto(){
       return codigoProduto;
     }
@@ -57,6 +62,9 @@ public class Pedido{
 
 
     // Setters
+    public void setEficiencia(int eficiencia){
+      this.eficiencia = eficiencia;
+    }
     public void setCodigoProduto(Long codigoProduto){
       this.codigoProduto = codigoProduto;
     }
@@ -92,6 +100,7 @@ public class Pedido{
 
     }
     public Pedido(RequisicaoNovoPedido requisicao){
+        this.eficiencia = requisicao.eficiencia();
         this.nomeProduto = requisicao.nomeProduto();
         this.urlProduto = requisicao.urlProduto();
         this.urlImagem = requisicao.urlImagem();
